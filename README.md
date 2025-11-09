@@ -7,6 +7,7 @@ https://opencores.org/projects/simple_spi
 
 The original copyright and license is as follows:
 
+```verilog
 //// Copyright (C) 2002 Richard Herveille                        ////
 ////                    richard@asics.ws                         ////
 ////                                                             ////
@@ -29,7 +30,7 @@ The original copyright and license is as follows:
 //// OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE         ////
 //// POSSIBILITY OF SUCH DAMAGE.                                 ////
 ////                                                             ////
-
+```
 
 fwspi-initiator wraps simple_spi with a 32-bit wishbone interface 
 using Featherweight-IP macros. It also provides a cocotb-based
