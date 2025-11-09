@@ -1,33 +1,16 @@
 package:
     name: fwspi-initiator
-    version: None
-    deps:
-        - name: fwprotocol-defs
-          url: http://github.com/Featherweight-IP/fwprotocol-defs.git
-          type: raw
 
-    dev-deps:
-        - name: fwprotocol-defs
-          url: http://github.com/Featherweight-IP/fwprotocol-defs.git
-          type: raw
-        - name: cocotb
-          type: python
-          src: pypi
-        - name: vlsim
-          type: python
-          src: pypi
-        - name: pybfms
-          url: https://github.com/pybfms/pybfms.git
-          type: python
-        - name: pybfms-gpio
-          url: https://github.com/pybfms/pybfms-gpio.git
-          type: python
-        - name: pybfms-wishbone
-          url: https://github.com/pybfms/pybfms-wishbone.git
-          type: python
-        - name: pybfms-spi
-          url: https://github.com/pybfms/pybfms-spi.git
-          type: python
-        - name: mkdv
-          url: https://github.com/fvutils/mkdv.git
-          type: python
+    dep-sets:
+    - name: default-dev
+      deps: 
+      - name: fwprotocol-defs
+        url: http://github.com/featherweight-ip/fwprotocol-defs.git
+      - name: featherweight-ip.github.io
+        url: http://github.com/featherweight-ip/featherweight-ip.github.io.git
+      - name: dv-flow-mgr
+        url: http://github.com/dv-flow/dv-flow-mgr.git
+      - name: dv-flow-libhdlsim
+        url: http://github.com/dv-flow/dv-flow-libhdlsim.git
+
+
