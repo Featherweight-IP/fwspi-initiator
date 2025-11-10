@@ -1,0 +1,21 @@
+
+fragment:
+  imports:
+  - "${{ rootdir }}/packages/fwprotocol-defs/flow.yaml"
+
+  tasks:
+  - name: sim-img
+    uses: hdlsim.vlt.SimImage
+    needs:
+    - hdlsim.vlt.SimLibUVM
+    - rtl-src
+    - tb-hvlsrc
+    with:
+      top: 
+      - fwspi_initiator_hvl_top
+  - name: sim-run
+    uses: hdlsim.vlt.SimRun
+    needs: [sim-img]
+
+  fragments:
+  - tb/tb.yaml

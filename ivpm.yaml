@@ -12,5 +12,9 @@ package:
         url: http://github.com/dv-flow/dv-flow-mgr.git
       - name: dv-flow-libhdlsim
         url: http://github.com/dv-flow/dv-flow-libhdlsim.git
+      - name: fwvip-wb
+        url: http://github.com/featherweight-vip/fwvip-wb.git
+      - name: uvm
+        url: https://www.accellera.org/images/downloads/standards/uvm/Accellera-1800.2-2017-1.0.tar.gz
 
 

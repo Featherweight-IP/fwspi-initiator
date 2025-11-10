@@ -1,0 +1,11 @@
+
+fragment:
+
+  tasks:
+  - name: rtl-src
+    uses: std.FileSet
+    needs:
+    - org.featherweight-ip.protocol-defs.all-rtlsrc
+    with:
+      type: systemVerilogSource
+      include: "*.v"

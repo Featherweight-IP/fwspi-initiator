@@ -1,0 +1,9 @@
+fragment:
+  tasks:
+  - name: tb-hvlsrc
+    uses: std.FileSet
+    with:
+      type: systemVerilogSource
+      include:
+      - fwspi_initiator_hdl_top.sv
+      - fwspi_initiator_hvl_top.sv

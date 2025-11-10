@@ -1,0 +1,7 @@
+
+package:
+  name: fwspi-initiator
+
+  fragments:
+  - src/rtl/rtl.yaml
+  - src/verif/verif.yaml
