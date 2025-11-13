@@ -1,0 +1,46 @@
+// SystemRDL description of the Simple SPI Core registers
+// Derived from docs/simple_spi.md
+
+addrmap simple_spi {
+    name = "simple_spi";
+
+    // 0x00 - Serial Peripheral Control Register (SPCR)
+    reg {
+        regwidth = 8;
+        field { sw=rw; hw=na; reset=0; }      SPIE   [7:7];
+        field { sw=rw; hw=na; reset=0; }      SPE    [6:6];
+        field { sw=rw; hw=na; reset=0; }      RSV0   [5:5];
+        field { sw=rw; hw=na; reset=1; }      MSTR   [4:4];
+        field { sw=rw; hw=na; reset=0; }      CPOL   [3:3];
+        field { sw=rw; hw=na; reset=0; }      CPHA   [2:2];
+        field { sw=rw; hw=na; reset=0; }      SPR    [1:0];
+    } SPCR @ 0x00;
+
+    // 0x01 - Serial Peripheral Status Register (SPSR)
+    reg {
+        regwidth = 8;
+        // SPIF, WCOL are write-one-to-clear status bits
+        field { sw=rw; hw=rw; woclr; reset=0; } SPIF   [7:7];
+        field { sw=rw; hw=rw; woclr; reset=0; } WCOL   [6:6];
+        field { sw=r;  hw=na;               reset=0; } RSV1   [5:4];
+        field { sw=r;  hw=rw;               reset=0; } WFFULL [3:3];
+        field { sw=r;  hw=rw;               reset=1; } WFEMPTY[2:2];
+        field { sw=r;  hw=rw;               reset=0; } RFFULL [1:1];
+        field { sw=r;  hw=rw;               reset=1; } RFEMPTY[0:0];
+        // Reset value per spec: 0x05 -> WFEMPTY=1, RFEMPTY=1
+    } SPSR @ 0x04;
+
+    // 0x02 - Serial Peripheral Data Register (SPDR)
+    reg {
+        regwidth = 8;
+        field { sw=rw; hw=rw; } DATA [7:0];
+    } SPDR @ 0x08;
+
+    // 0x03 - Serial Peripheral Extensions Register (SPER)
+    reg {
+        regwidth = 8;
+        field { sw=rw; hw=na; reset=0; } ICNT  [7:6];
+        field { sw=rw; hw=na; reset=0; } RSV2  [5:2];
+        field { sw=rw; hw=na; reset=0; } ESPR  [1:0];
+    } SPER @ 0x0C;
+};

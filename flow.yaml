@@ -1,6 +1,13 @@
 
 package:
   name: fwspi-initiator
+  with:
+    sim:
+      type: str 
+      value: vlt
+
+  imports:
+  - "${{ rootdir }}/packages/fwvip-wb/flow.yaml"
 
   fragments:
   - src/rtl/rtl.yaml

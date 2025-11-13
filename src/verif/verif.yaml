@@ -2,20 +2,30 @@
 fragment:
   imports:
   - "${{ rootdir }}/packages/fwprotocol-defs/flow.yaml"
+  - "${{ rootdir }}/packages/fwvip-wb/flow.yaml"
 
   tasks:
   - name: sim-img
-    uses: hdlsim.vlt.SimImage
+    uses: hdlsim.${{ sim }}.SimImage
     needs:
-    - hdlsim.vlt.SimLibUVM
+    - hdlsim.${{ sim }}.SimLibUVM
+    - org.featherweight-vip.fwvip-wb.sv-hvlsrc
+    - org.featherweight-vip.fwvip-wb.vip-uvm-hvlsrc
     - rtl-src
+    - env-hvlsrc
+    - tests-hvlsrc
     - tb-hvlsrc
     with:
       top: 
       - fwspi_initiator_hvl_top
+      trace: true
+      defines:
+      - TRACE_EN
   - name: sim-run
-    uses: hdlsim.vlt.SimRun
+    uses: hdlsim.${{ sim }}.SimRun
     needs: [sim-img]
 
   fragments:
   - tb/tb.yaml
+  - env/env.yaml
+  - tests/tests.yaml

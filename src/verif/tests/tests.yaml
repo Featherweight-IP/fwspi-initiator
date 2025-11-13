@@ -1,0 +1,8 @@
+fragment:
+  tasks:
+  - name: tests-hvlsrc
+    uses: std.FileSet
+    with:
+      type: systemVerilogSource
+      include:
+      - fwspi_initiator_tests_pkg.sv
